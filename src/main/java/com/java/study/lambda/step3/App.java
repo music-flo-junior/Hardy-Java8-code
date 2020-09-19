@@ -14,6 +14,7 @@ import java.util.function.UnaryOperator;
 public class App {
 
     public static void main(String[] args) {
+        // Reference
         UnaryOperator<String> hi1 = (s) -> "hi " + s;
         UnaryOperator<String> hi2 = Greeting::hi;
         System.out.println(hi1.apply("hardy1"));
@@ -33,6 +34,17 @@ public class App {
         String[] names = {"hardy", "groot", "java8"};
         Arrays.sort(names, String::compareToIgnoreCase);
         System.out.println(Arrays.toString(names));
+
+        // Interface
+        Foo foo = new DefaultFoo("Hardy");
+        foo.printName();
+        foo.printNameUpperCase();
+
+        Foo.pringAnything();
+
+        Bar bar = new DefaultBar("Groot");
+        bar.printName();
+        bar.printNameUpperCase();
     }
 
 }
