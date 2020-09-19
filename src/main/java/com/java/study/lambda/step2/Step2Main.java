@@ -1,9 +1,6 @@
 package com.java.study.lambda.step2;
 
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
+import java.util.function.*;
 
 /**
  * 설명 : XXXXXXXXXXX
@@ -21,11 +18,23 @@ public class Step2Main {
         Function<Integer, Integer> plus10Function = (number) -> number + 10;
         System.out.println("(2) " + plus10Function.apply(2));
 
+        // UnaryOperator
+        UnaryOperator<Integer> ex = (i) -> i + 100;
+        System.out.println("(2)-1 " + ex.apply(10));
+
         Function<Integer, Integer> multiply2Function = (number) -> number * 2;
         System.out.println("(3) " + multiply2Function.apply(2));
 
         System.out.println("(4) " + plus10Function.compose(multiply2Function).apply(2));
         System.out.println("(5) " + plus10Function.andThen(multiply2Function).apply(2));
+
+        // BiFunction, BinaryOperator
+        BiFunction<Integer, Integer, Integer> sum1 = (a, b) -> a + b;
+        BiFunction<Integer, Integer, Integer> sum2 = Integer::sum;
+        BinaryOperator<Integer> sum3 = Integer::sum;
+        System.out.println(sum1.apply(1, 2));
+        System.out.println(sum2.apply(1, 2));
+        System.out.println(sum3.apply(1, 2));
 
         // Consumer
         Consumer<Integer> printT = (i) -> System.out.println("(6) " + i);
