@@ -1,5 +1,7 @@
 package com.java.study.stream;
 
+import java.util.Optional;
+
 /**
  * 설명 : XXXXXXXXXXX
  *
@@ -10,6 +12,8 @@ public class OnlineClass {
     private Integer id;
     private String title;
     private boolean closed;
+
+    private Progress progress;
 
     public OnlineClass(Integer id, String title, boolean closed) {
         this.id = id;
@@ -29,6 +33,10 @@ public class OnlineClass {
         return closed;
     }
 
+    public Optional<Progress> getProgress() {
+        return Optional.empty();
+    }
+
     public void setId(Integer id) {
         this.id = id;
     }
@@ -39,5 +47,9 @@ public class OnlineClass {
 
     public void setClosed(boolean closed) {
         this.closed = closed;
+    }
+
+    public void setProgress(Progress progress) {
+        this.progress = progress;
     }
 }
